@@ -61,7 +61,10 @@ public class Game {
 	}
 	
 	private void initGhosts(int numberOfGhosts) {
-		//TODO place ghosts
+		int i = 0;
+		while(i < numberOfGhosts){
+			
+		}
 	}
 	
 	private void initPacman() {
@@ -117,6 +120,11 @@ public class Game {
 	
 	public int getScore() {
 		return score;
+	}
+	
+	public Position getrandvalidPosition(){
+		int x = 
+		return new Position();
 	}
 	
 }
