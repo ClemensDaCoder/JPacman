@@ -123,8 +123,8 @@ public class Game {
 	}
 	
 	public Position getrandvalidPosition(){
-		int x = 
-		return new Position();
+		//int x = 
+		return null;//new Position();
 	}
 	
 }
