@@ -6,6 +6,8 @@ import pacman.grid.GridObject;
 import pacman.grid.Position;
 import pacman.grid.Wall;
 import pacman.moving.MovingObject;
+import pacman.moving.PacMan;
+import pacman.bonus.Pellet;
 
 public class Game {
 	
@@ -54,10 +56,19 @@ public class Game {
 	
 	private void initFruits(int numberOfFruits) {
 		//TODO place fruits in random positions
+		
 	}
 	
 	private void initPellets() {
-		//TODO place pellets
+		//Alle freien Felder mit Pellets belegen
+		for(int i =1;i<27;i++){
+			for(char j = 'a';j<='z';j++){
+				Position p = new Position(j,i);
+				if(!gridObjects.containsKey(p)){
+					gridObjects.put(p, new Pellet());
+				}
+			}
+		}
 	}
 	
 	private void initGhosts(int numberOfGhosts) {
@@ -68,8 +79,11 @@ public class Game {
 	}
 	
 	private void initPacman() {
-		//TODO set pacman
-		
+		//PacMan an fixer Position platzieren
+		Position p = new Position('h', 13);
+		if(!gridObjects.containsKey(p)){
+			gridObjects.put(p, new PacMan());
+		}
 	}
 	
 	public static Game getInstance() {
