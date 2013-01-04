@@ -76,8 +76,8 @@ public class Game {
 		for(int i =1;i<27;i++){
 			for(char j = 'a';j<='z';j++){
 				Position p = new Position(j,i);
-				if(!gridObjects.containsKey(p)){
-					gridObjects.put(p, new Pellet());
+				if((!gridObjects.containsKey(p))&&(!bonusObjects.containsKey(p))){
+					bonusObjects.put(p, new Pellet());
 				}
 			}
 		}
