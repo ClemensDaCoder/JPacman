@@ -2,7 +2,7 @@ package pacman;
 import java.util.HashMap;
 
 import pacman.bonus.BonusObject;
-import pacman.bonus.Fruit;
+import pacman.bonus.Cherry;
 import pacman.bonus.Peach;
 import pacman.grid.GridObject;
 import pacman.grid.Position;
@@ -34,7 +34,7 @@ public class Game {
 		//set pacman to his start position
 		initPacman();
 		//place fruit(s) random in maze
-		initFruits(1);
+		initFruits();
 		//fill remaining positions of maze with pellets
 		initPellets();
 		//place ghost(s) random in maze
@@ -56,18 +56,21 @@ public class Game {
 		}
 	}
 	
-	private void initFruits(int numberOfFruits) {
+	private void initFruits() {
 		//TODO place fruits in random positions
-		 int i = 0;
-		 while( i< numberOfFruits){
-			 Position pos = getrandvalidPosition();
+			Position pos = getrandvalidPosition();
 			 while(gridObjects.containsKey(pos)){
 				 pos = getrandvalidPosition();
 			 }
 			 bonusObjects.put(pos, new Peach());
+			 pos = getrandvalidPosition();
+			 while(gridObjects.containsKey(pos)){
+				 pos = getrandvalidPosition();
+			 }
+			 bonusObjects.put(pos, new Cherry());
 			//TODO place fruits in random positions
 			 //TODO NUMBER !!!
-		 }
+		 
 		
 	}
 	
@@ -76,8 +79,8 @@ public class Game {
 		for(int i =1;i<27;i++){
 			for(char j = 'a';j<='z';j++){
 				Position p = new Position(j,i);
-				if((!gridObjects.containsKey(p))&&(!bonusObjects.containsKey(p))){
-					bonusObjects.put(p, new Pellet());
+				if(!gridObjects.containsKey(p)){
+					gridObjects.put(p, new Pellet());
 				}
 			}
 		}
