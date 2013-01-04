@@ -2,6 +2,8 @@ package pacman;
 import java.util.HashMap;
 
 import pacman.bonus.BonusObject;
+import pacman.bonus.Fruit;
+import pacman.bonus.Peach;
 import pacman.grid.GridObject;
 import pacman.grid.Position;
 import pacman.grid.Wall;
@@ -56,6 +58,16 @@ public class Game {
 	
 	private void initFruits(int numberOfFruits) {
 		//TODO place fruits in random positions
+		 int i = 0;
+		 while( i< numberOfFruits){
+			 Position pos = getrandvalidPosition();
+			 while(gridObjects.containsKey(pos)){
+				 pos = getrandvalidPosition();
+			 }
+			 bonusObjects.put(pos, new Peach());
+			//TODO place fruits in random positions
+			 //TODO NUMBER !!!
+		 }
 		
 	}
 	
@@ -137,8 +149,11 @@ public class Game {
 	}
 	
 	public Position getrandvalidPosition(){
-		//int x = 
-		return null;//new Position();
+		
+		char x = (char)(Math.random()* (25 - 2) + 2);
+		int y = (int) (Math.random()* (25 - 2) + 2);
+			
+		return new Position(x,y);
 	}
 	
 }
