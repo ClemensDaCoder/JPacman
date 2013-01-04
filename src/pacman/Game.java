@@ -4,6 +4,7 @@ import java.util.HashMap;
 import pacman.bonus.BonusObject;
 import pacman.grid.GridObject;
 import pacman.grid.Position;
+import pacman.grid.Wall;
 import pacman.moving.MovingObject;
 
 public class Game {
@@ -38,6 +39,17 @@ public class Game {
 	
 	private void initMaze() {
 		//TODO: fill Hashmap gridObjects with WallObjects
+		for (int i = 1; i < 27; i ++)
+		{
+		gridObjects.put(new Position('a',i), new Wall());
+		gridObjects.put(new Position('z',i), new Wall());
+		}
+
+		for(char i = 'a'; i <= 'z'; i ++)
+		{
+			gridObjects.put(new Position(i, 1), new Wall());
+			gridObjects.put(new Position(i, 26), new Wall());
+		}
 	}
 	
 	private void initFruits(int numberOfFruits) {
@@ -54,6 +66,7 @@ public class Game {
 	
 	private void initPacman() {
 		//TODO set pacman
+		
 	}
 	
 	public static Game getInstance() {
