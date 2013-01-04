@@ -9,8 +9,6 @@ import pacman.moving.MovingObject;
 
 public class Game {
 	
-	public int test;
-	
 	private static Game instance = null;
 
 	private HashMap<Position, MovingObject> movingObjects;
