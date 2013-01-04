@@ -8,7 +8,7 @@ public class Position {
 	
 	
 	public Position(char x, int y) {
-		this.x = x;
+		this.x = Character.toUpperCase(x);
 		this.y = y;
 	}
 	
@@ -37,8 +37,11 @@ public class Position {
 	}
 	
 	public static boolean isValidPosition(Position pos) {
-		//TODO: check if position is valid
-		return true;
+		return Character.isAlphabetic(pos.x) && pos.y <= 100;
 	}
-
+	
+	public String toString() {
+		return "Position " + x + y;
+	}
+	
 }
