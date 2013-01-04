@@ -9,6 +9,7 @@ import pacman.grid.Position;
 import pacman.grid.Wall;
 import pacman.moving.MovingObject;
 import pacman.moving.PacMan;
+import pacman.moving.RandomGhost;
 import pacman.bonus.Pellet;
 
 public class Game {
@@ -68,9 +69,7 @@ public class Game {
 				 pos = getrandvalidPosition();
 			 }
 			 bonusObjects.put(pos, new Cherry());
-			//TODO place fruits in random positions
-			 //TODO NUMBER !!!
-		 
+	 
 		
 	}
 	
@@ -89,6 +88,7 @@ public class Game {
 	private void initGhosts(int numberOfGhosts) {
 		int i = 0;
 		while(i < numberOfGhosts){
+			movingObjects.put(getrandvalidPosition(), new RandomGhost());
 			
 		}
 	}
